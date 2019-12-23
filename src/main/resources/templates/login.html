@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}">
+
+</head>
+<body>
+
+<div class="container blog-content-container">
+    <!--/login： security会自动拦截登录请求进行匹配账号和密码 进行认证-->
+    <form action="/login" method="POST" th:action="@{/login}">
+        <h3>请登录</h3>
+        <div class="from-group col-md-5">
+            <label for="username" class="col-form-label">账号</label>
+            <input type="text" class="form-control" id="username" name="username" maxlength="50" placeholder="请输入账号">
+        </div>
+        <div class="from-group col-md-5">
+            <label for="password" class="col-form-label">密码</label>
+            <input type="text" class="form-control" id="password" name="password" maxlength="50" placeholder="请输入密码">
+        </div>
+        <div class="from-group col-md-5">
+            <button type="submit" class="btn btn-primary">登录</button>
+        </div>
+
+        <div class="col-md-5" th:if="${loginError}">
+            <p class="blog-label-error" th:text="${errorMsg}"></p>
+
+        </div>
+    </form>
+
+</div>
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

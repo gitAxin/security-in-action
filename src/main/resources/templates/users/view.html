@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/header :: header}">
+
+</head>
+<body>
+<div class="container blog-content-container">
+    <h3 th:text="${userModel.title}">Welcome to giteasy.cn</h3>
+    <div>
+        <p><strong>ID:</strong><span id="id" th:text="${userModel.user.id}">123</span></p>
+        <p><strong>Name:</strong><span id="name" th:text="${userModel.user.name}">giteasy</span></p>
+        <p><strong>Age:</strong><span id="age" th:text="${userModel.user.age}">18</span></p>
+    </div>
+
+    <div>
+        <a th:href="@{'/users/delete/' + ${userModel.user.id}}">删除 </a>
+        | <a th:href="@{'/users/modify/' + ${userModel.user.id}}">修改</a>
+    </div>
+</div>
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

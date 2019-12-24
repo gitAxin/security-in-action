@@ -366,7 +366,6 @@ login.html
 ```
 项目目录结构，只标记关键文件
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191224224615182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTU0MTY1Nw==,size_16,color_FFFFFF,t_70)
-
 页面效果
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191224225439124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTU0MTY1Nw==,size_16,color_FFFFFF,t_70)

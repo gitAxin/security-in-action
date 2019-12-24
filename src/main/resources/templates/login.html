@@ -8,7 +8,11 @@
 <body>
 
 <div class="container blog-content-container">
-    <!--/login： security会自动拦截登录请求进行匹配账号和密码 进行认证-->
+    <!--
+       /login： 我们并没有在Controller中定义/login接口，
+       而在SecurityConfig.java文件中定义了/login接口，
+       security会自动拦截登录请求进行匹配账号和密码 进行认证
+    -->
     <form action="/login" method="POST" th:action="@{/login}">
         <h3>请登录</h3>
         <div class="from-group col-md-5">
@@ -23,9 +27,9 @@
             <button type="submit" class="btn btn-primary">登录</button>
         </div>
 
+        <!--登录失败，重定向到此而面，显示登录失败信息-->
         <div class="col-md-5" th:if="${loginError}">
             <p class="blog-label-error" th:text="${errorMsg}"></p>
-
         </div>
     </form>
 

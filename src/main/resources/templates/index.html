@@ -3,17 +3,20 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="~{fragments/header :: header}">
-
+    <!--th:replace="~{fragments/header :: header}"：会将header.html页面内容替换到这个dom节点下-->
 </head>
 <body>
 
 <div class="container blog-content-container">
 
+    <!--登录判断：如果已登录，显示用户名和用户角色-->
     <div sec:authorize="isAuthenticated()">
         <p>已登录</p>
         <p>用户名：<span sec:authentication="name"></span></p>
         <p>角  色：<span sec:authentication="principal.authorities"></span></p>
     </div>
+
+    <!--登录判断：如果未登录，提示未登录信息-->
     <div sec:authorize="isAnonymous()">
         <p>未登录</p>
     </div>

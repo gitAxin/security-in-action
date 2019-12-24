@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
    <!-- <title th:text="${userModel.title}">welcome</title>-->
 
-
     <!-- Tether core CSS -->
     <link href="../../css/tether.min.css" th:href="@{/css/tether.min.css}" rel="stylesheet">
 
@@ -16,7 +15,6 @@
 
     <!-- Font-Awesome CSS -->
     <link href="../../css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
-
 
     <!-- Custom styles -->
     <link href="../../css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
@@ -30,7 +28,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsContainer">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/" th:href="@{~/}">Bootstrap In Action</a>
+        <a class="navbar-brand" href="/" th:href="@{~/}">Security In Action</a>
         <div  class="collapse navbar-collapse" id="navbarsContainer">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -38,7 +36,7 @@
                 </li>
             </ul>
 
-            <!--登录判断-->
+            <!--登录判断：如果已登录，显示用户名和退出按钮-->
             <div sec:authorize="isAuthenticated()" class="row">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -50,6 +48,7 @@
                 </form>
 
             </div>
+            <!--登录判断：如果未登录，显示登录按钮-->
             <div sec:authorize="isAnonymous()">
                 <a href="/login" th:href="@{~/login}" class="btn btn-outline-success my-2 my-sm-0" type="submit">登录</a>
             </div>

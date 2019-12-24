@@ -22,14 +22,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
        http.authorizeRequests()
-               .antMatchers("/css/**","/js/**","/fonts/**","/index").permitAll()//都可以访问
-                .antMatchers("/users/**").hasRole("ADMIN")//需要相应的角色才能访问
-               .and()
-               .formLogin()//表单认证
-               .loginPage("/login") //自定义登录页面
-               .failureUrl("/login-error");//登录错误页面
+           .antMatchers("/css/**","/js/**","/fonts/**","/index").permitAll()//都可以访问
+           .antMatchers("/users/**").hasRole("ADMIN")//需要ADMIN的角色才能访问
+           .and()
+           .formLogin()//基于form表单认证
+           .loginPage("/login") //自定义登录页面
+           .failureUrl("/login-error");//登录失败页面
     }
-
 
     /**
      * 认证信息管理
@@ -38,10 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication()//认证信息存储在内存中
+        auth.inMemoryAuthentication()//为了演示方便我们将认证信息存储在内存中
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("axin")
-                .password(new BCryptPasswordEncoder().encode("123456"))
-                .roles("ADMIN");
+                .withUser("axin") //用于演示的用户名
+                .password(new BCryptPasswordEncoder().encode("123456"))//密码
+                .roles("ADMIN");//角色名称
     }
 }

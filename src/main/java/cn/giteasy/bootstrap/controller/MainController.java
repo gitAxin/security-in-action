@@ -31,6 +31,7 @@ public class MainController {
     public String loginError(Model model){
         model.addAttribute("loginError",true);
         model.addAttribute("errorMsg","登录失败，用户名或密码错误！");
+        //登录失败后，还是会返回登录页面，但是会携带错误信息
         return "login";
     }
 
